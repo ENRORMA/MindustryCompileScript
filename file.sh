@@ -10,10 +10,10 @@ read -p "Configure? (y/n)" confirm && if [[ "$confirm" =~ ^[Yy]+([eE][sS])?$ ]];
 ./gradlew server:dist
 unset confirm
 
-read -p "custom file name? default: modded (y/n)" confirm && if [[ "$confirm" =~ ^[Yy]+([eE][sS])?$ ]]; then read -p "File name: " filename;rm ../../$filename >> /dev/null; mv server/build/libs/server-release.jar ../../$filename.jar; pushd ../../; touch $filename.sh; chmod +x *.sh; echo "java -jar $filename.jar" > $filename.sh; popd
+read -p "custom file name? default: custom (y/n)" confirm && if [[ "$confirm" =~ ^[Yy]+([eE][sS])?$ ]]; then read -p "File name: " filename;rm ../../$filename >> /dev/null; mv server/build/libs/server-release.jar ../../$filename.jar; pushd ../../; touch $filename.sh; chmod +x *.sh; echo "java -jar $filename.jar" > $filename.sh; popd
 
 
-else mv server/build/libs/server-release.jar ../../modded.jar; fi
+else mv server/build/libs/server-release.jar ../../custom.jar; fi
 
 popd; popd
 rm -rf temp
